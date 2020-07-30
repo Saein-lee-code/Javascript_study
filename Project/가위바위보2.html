@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 600px;
+            margin: 30px auto; 
+        }
+        .container h1, h3, p { text-align: center; }
+        .container button { width: 30%; height: 180px; background-color: white; border: 0; } 
+        .container img { width: 170px;  margin-right: 10px; margin-bottom: 30px; }
+        .container .btn_img img:hover { box-shadow: 2px 2px 10px gray; }
+        .user, .vs, .com { display: inline-block; }
+        .user, .com { width: 250px; }
+        .vs { width: 50px; }
+        #result1 { text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>가위/바위/보 게임</h1>
+        <p>아래의 이미지를 선택하면 게임이 시작됩니다.</p>
+        <div class="btn_img">
+            <button onclick="play(0)"><img src="images/img_0.png" alt=""></button>
+            <button onclick="play(1)"><img src="images/img_1.png" alt=""></button>
+            <button onclick="play(2)"><img src="images/img_2.png" alt=""></button>
+        </div>  
+        <div class="user">
+                <h3>사용자</h3>
+                <img id="user_img" src="" alt="">
+        </div>
+        <div class="vs"><h3>VS</h3></div>
+        <div class="com">
+                <h3>컴퓨터</h3>
+                <img id="com_img" src="" alt="">
+        </div>
+        <div id="result1">
+            <p><span id="s1">0</span>전<span id="s2">0</span>승<span id="s3">0</span>패<span id="s4">0</span>무승부</p>
+        </div>      
+    </div>
+    <script>
+        function play(n){
+            document.querySelector('#user_img').setAttribute('src', 'images/img_' + n + '.png');
+            var rn = parseInt(Math.random() * 3);
+            document.querySelector('#com_img').setAttribute('src', 'images/img_' + rn + '.png');
+            var tot, win, lose, draw;
+            var result = n - rn;
+
+            ++tot;
+            document.querySelector("#s1").innerHTML = tot;
+            switch(result){
+                case -2: case 1:
+                    document.querySelector('#result1').innerHTML = "사용자가 이겼습니다.";
+                    ++win;
+                    document.querySelector("#s2").innerHTML = win;
+                    break;
+                case -1: case 2:
+                    document.querySelector('#result1').innerHTML = "컴퓨터가 이겼습니다.";
+                    ++lose;
+                    document.querySelector("#s3").innerHTML = lose;
+                    break;
+                case 0:
+                    document.querySelector('#result1').innerHTML = "비겼습니다.";                    
+                    ++draw;
+                    document.querySelector("#s4").innerHTML = draw;
+
+                    break;
+            }
+        
+        }
+        
+    </script>    
+</body>
+</html>
