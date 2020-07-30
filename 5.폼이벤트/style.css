@@ -1,0 +1,20 @@
+body, h1, ul { margin: 0; padding: 0; }
+ul { list-style: none; }
+a { text-decoration: none; }
+#gallery { position: relative;
+           width: 400px;
+           border: 1px solid #8b8b8b;
+           margin: 50px auto 0;
+           padding: 20px 50px;
+           box-shadow: 5px 5px 8px #787878;
+           text-align: center;
+         }
+/* box2 */
+#photo { width: 400px; }
+#photoWrap { overflow: hidden; width: 300px; margin: 20px 0 0 50px; }
+#photoList { width: 800px; transition: 0.5s;}
+#photoList li { width: 100px; text-align: center; float: left; }
+#photoList li a img{ width: 72px; height: 54px; }
+.btn_wrap a{ position: absolute; bottom: 25px; font-size: 50px; color: #636782; }
+#before_btn { left: 50px; }
+#next_btn { right: 50px; }
