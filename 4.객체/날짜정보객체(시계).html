@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+      function time(){
+        var heading = document.querySelector('h1');
+        var date = new Date();
+        var hh = date.getHours();
+        var mm = date.getMinutes();
+        var ss = date.getSeconds();
+        heading.innerHTML = hh + ":" + mm + ":" + ss;
+      }
+      function init(){
+        setInterval(time, 1000);
+      }
+      init();
+    </script>
+  </head>
+  <body>
+    <h1></h1>
+  </body>
+</html>
