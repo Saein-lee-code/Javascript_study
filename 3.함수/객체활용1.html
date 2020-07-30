@@ -41,13 +41,12 @@
         document.write(person2.major + "<br>");
         document.write(person2.age + "<br><hr>");
         
-        // 
+        // 인스턴스 객체
         // 객체를 만드는 함수는 대문자로 쓰는것을 권장
         function Student(name, major, age){
             this.name = name;
             this.major = major;
-            this.age = age;
-            //이때 this는 
+            this.age = age;            
         }
 
         var s1 = new Student('이세인','건축학과',30);
