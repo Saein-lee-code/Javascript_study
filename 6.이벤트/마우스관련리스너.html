@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      div { height: 200px; border: 2px solid black;
+            background: #fff; font-size: 30px; transition: 0.2s; }
+    </style>
+  </head>
+  <body>
+    <div>휠 이벤트를 적용합니다.</div>
+    <script>
+      var bodyTag = document.querySelector('body');
+      var color = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
+      var div = document.querySelector('div');
+
+      // var num1 = color[Math.floor(Math.random() * color.length)];
+      // var num2 = color[Math.floor(Math.random() * color.length)];
+      // var num3 = color[Math.floor(Math.random() * color.length)];
+
+      div.addEventListener('wheel', function(){
+        var num1 = color[Math.floor(Math.random() * color.length)];
+        var num2 = color[Math.floor(Math.random() * color.length)];
+        var num3 = color[Math.floor(Math.random() * color.length)];
+        if( event.wheelDelta < 0 ){
+          // over 0 위로 down 0 휠 아래
+          // "#" + Math.round(Mtah.random() * 0xFFFFFF).toString(16)
+          this.style.color = "#000";
+          this.style.backgroundColor = "#" + num1 + num2 + num3;
+        }else
+          this.style.color = "#" + num1 + num2 + num3;
+      })
+
+
+
+    </script>
+  </body>
+</html>
