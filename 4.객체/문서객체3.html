@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+      // function mouseOver(){
+      //   document.getElementById('title').innerHTML = "마우스 오버";
+      //   document.getElementById('btn').firstChild.nextSibling.src = "images/btn_over.gif";
+      //   document.getElementById('img_src').innerHTML = imgPath;
+      // }
+      // function mouseOut(){
+      //   document.getElementById('title').innerHTML = "마우스 아웃";
+      //   document.getElementById('btn').firstChild.nextSibling.src = "images/btn_out.gif";
+      //
+      // }
+    </script>
+  </head>
+  <body>
+    <h1 id="title">마우스 아웃</h1>
+    <a href="#" id="btn">
+      <img src="images/btn_out.gif" alt="버튼" />
+    </a>
+    <p id="img_src"></p>
+    <script>
+    var title = document.getElementById('title');
+    var theBtn = document.getElementById('btn');
+    var s = document.getElementById('img_src');
+    theBtn.onmouseover = function(){
+      title.innerHTML = "마우스오버"
+      // theBtn.children[0].setAttribute("src", "images/btn_over.gif")
+      theBtn.children[0].src = "images/btn_over.gif"
+      s.innerHTML = theBtn.children[0].src;
+    }
+    theBtn.onmouseout = function(){
+      title.innerHTML = "마우스아웃"
+      theBtn.firstChild.nextSibling.setAttribute("src", "images/btn_out.gif")
+      s.innerHTML = theBtn.children[0].src;
+    }
+    </script>
+  </body>
+</html>
