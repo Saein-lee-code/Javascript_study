@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>키보드 이벤트</title>
+  </head>
+  <body>
+    <input type="text" id="text">
+    <div>키보드 알림</div>
+    <script>
+      function keyName(){
+        var str = "";
+        var div = document.querySelector("div");
+        div.innerHTML = "";
+        str += String.fromCharCode(event.keyCode);
+        div.innerHTML = str;
+      }
+      var text = document.getElementById("text");
+      text.onkeydown = keyName;
+    </script>
+  </body>
+</html>
