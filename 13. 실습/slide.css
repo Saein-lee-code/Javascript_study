@@ -1,0 +1,33 @@
+@charset "utf-8";
+body, ul { margin: 0; padding: 0; }
+li{ list-style: none; }
+a{ text-decoration: none; }
+#slider{
+  position: relative;
+  width: 400px;
+  border: 5px solid black;
+  padding: 50px 100px;
+  margin: 50px auto 0;
+}
+#sliderWrap{
+  width: 400px;
+  overflow: hidden;
+}
+/* width:1200 은 스크립트로 */
+#slideList { overflow: hidden; }
+#slideList li { width: 400px; height: 400px; float: left; }
+.slider1{ background: #a3dee9; }
+.slider2{ background: #ceb7f3; }
+.slider3{ background: #e9a3ba; }
+#slideList li a{ font-size: 50px; color: white; }
+#btnWrap a{ position: absolute; top: 50%; font-size: 24px; color: #000; }
+.prev{ left: 30px; }
+.next{ right: 30px;  }
+
+#btnNum { width: 120px; margin: 20px auto 0; }
+#btnNum span { width: 20px; height: 20px;
+              display: block; border-radius: 50%;
+              background: #000; float: left; margin: 0 10px;
+              cursor: pointer;
+              }
+#btnNum .active{ background: #f00; }

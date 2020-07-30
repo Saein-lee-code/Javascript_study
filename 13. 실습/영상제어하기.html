@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>비디오 제어하기</title>
+  </head>
+  <body>
+    <!-- muted를 해줘야 자동재생 옵션이 됌 -->
+    <video>
+      <source src="media/bear.mp4">
+    </video>
+    <br>
+    <button>play</button>
+    <button>pause</button>
+    <button>replay</button>
+    <button>vol up</button>
+    <button>vol down</button>
+    <button>mute on/off</button>
+    <br><br>
+    <div id="msg">현재 비디오 정보를 출력합니다</div>
+    <script>
+      var video = document.querySelector('video');
+      var msg = document.getElementById('msg');
+
+      var btn = document.querySelectorAll('button');
+      btn[0].onclick = function(){
+        video.play();
+        msg.innerHTML = video.children[0].src + "를 재생중입니다.";
+      }
+      btn[1].onclick = function(){
+        video.pause();
+      }
+      btn[2].onclick = function(){
+        video.load(); // stop
+        video.play();
+      }
+      btn[3].onclick = function(){
+        if(video.volume < 0.9)
+          video.volume += 0.1;
+        else
+          video.volume = 1;
+        msg.innerHTML = "볼륨값: " + video.volume;
+      }
+      btn[4].onclick = function(){
+        if(video.volume > 0.1)
+          video.volume -= 0.1;
+        else
+          video.volume = 0;
+        msg.innerHTML = "볼륨값: " + video.volume;
+        }
+      btn[5].onclick = function(){
+        /*
+          video.muted = !video.muted (false = true)
+          if(video.muted) msg.innerHTML = "음소거"
+          else msg.innerHTML = "음소거해제"
+        */
+
+        if(video.muted){
+          video.muted = false
+          msg.innerHTML = "소리 ON";
+        }
+        else {
+          video.muted = true
+          msg.innerHTML = "소리 OFF";
+        }
+
+      }
+    </script>
+  </body>
+</html>
