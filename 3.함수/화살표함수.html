@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>    
+    <script>
+        // 1. 익명함수 - 매개변수가 없음
+        var f1 = function(){
+            return "Hello!";
+        }
+        let a1 = () => "Hello";
+
+        var f2 = function(name){
+            return name+"님 안녕하세요?";            
+        }        
+        let a2 = (name) => `${name}님 안녕하세요?`;
+
+        document.write(a2(prompt("이름을 입력하세요")));
+    </script>
+</body>
+</html>
