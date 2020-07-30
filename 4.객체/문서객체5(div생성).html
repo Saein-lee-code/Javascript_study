@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>객체 생성</title>
+    <style>
+      #myDiv { background: #ff0; }
+    </style>
+  </head>
+  <body>
+    <div id="parent" >
+      <button>DIV 생성</button>
+    </div>
+    <script>
+      // insdrtBefore(추가될 대상, 부모요소의 첫번째 자식)
+      var parent = document.getElementById('parent');
+      var btn = document.getElementsByTagName('button')[0];
+
+      function createDiv(){
+        var newDiv = document.createElement('div');
+        newDiv.innerText = "새로 생성된 DIV 입니다."
+        newDiv.setAttribute("id", "myDiv");
+          parent.insertBefore(newDiv, parent.firstChild);
+      }
+
+      btn.onclick = createDiv;
+
+
+    </script>
+  </body>
+</html>
