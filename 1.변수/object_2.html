@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>object 표기</title>
+    <script>
+      let tv = new Object();
+      console.log(tv)
+      tv.color = "white";
+      tv.price = "300,000";
+      tv.info = function() {
+        document.write("tv 색상: " + this.color, "<br>");
+        document.write("tv 가격: " + this.price, "<br>");
+      }      
+      tv.info();
+
+      let car = { color: "black", price: "500,000",
+      info : function(){
+        document.write("car 색상: " + this.color, "<br>")
+        document.write("car 가격: " + this.price, "<br>")
+      }};
+      car.info();
+    </script>
+  </head>
+  <body>
+    <h1>tv 객체 메서드 호출</h1>
+    <p id="tv_object"></p>
+    <h1>car 객체 메서드 호출</h1>
+    <p id="car_object"></p>
+  </body>
+</html>
