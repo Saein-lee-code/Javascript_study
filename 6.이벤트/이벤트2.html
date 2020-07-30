@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>이벤트 적용방법 3가지</title>
+  </head>
+  <body>
+    <button>버튼1</button>
+    <button>버튼2</button>
+    <script>
+      var btn = document.getElementsByTagName("button");
+      btn[0].onclick = function() {
+        alert('실행1입니다');
+      }
+      btn[0].onclick = function() {
+        alert('실행2입니다');
+      }
+      btn[1].addEventListener('click', function(){
+        alert('실행2입니다');
+      })
+    </script>
+  </body>
+</html>
