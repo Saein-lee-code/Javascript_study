@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>object</title>
+    <script>
+      let people = { name: "홍길동", age: 20, height: 180 };
+      console.log(typeof(people))
+      console.log(people)
+      console.log(people.name)
+      console.log(people["name"]) // 위에것과 같은 것
+      people.name = "이순신" // 속성.이름 적용  O
+      console.log(people)
+      people = { name: "세종대왕" } // let or const people const 변수를 해서 넣으면 안됌.  let은 들어감
+      console.log(people)
+      var twice;
+      console.log(twice, typeof(twice)); // undefined
+      let nullvar = null;
+      console.log(nullvar, typeof(null))
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
