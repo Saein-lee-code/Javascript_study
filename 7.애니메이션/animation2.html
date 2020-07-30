@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>setInterval</title>
+    <style>
+      #box{ width: 300px; height: 300px;
+            background: #a45ea2; margin-bottom: 30px; }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <input type="button" value="투명버튼">
+    <script>
+      var btn = document.querySelectorAll('input')[0];
+      var box = document.getElementById('box');
+      var num = 0;
+
+      function changing(){
+        num = 0;
+        var moving = setInterval(function(){
+          num += 0.005;
+          box.style.opacity = num;
+          if(num > 1){
+            clearInterval(moving);
+            console.log(num)
+          }
+        }, 1)
+      }
+      btn.onclick = changing;
+    </script>
+  </body>
+</html>
