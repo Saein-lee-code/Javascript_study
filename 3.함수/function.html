@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>함수</title>
+    <script>
+      var count = 0;
+      myFnc();
+      function myFnc(){
+        count++;
+        document.write("hello" + count, "<br>");
+      }
+      myFnc();
+      var theFnc = function(){
+        count++;
+        document.write("bye" + count, "<br>");
+      }
+      theFnc();
+      f2();
+        //익명함수 (에러뜸. 밑에서 호출해야 함)
+        //hoisting 지원 x
+    
+        var f2 = function(){
+            document.write("익명함수 호출");
+        }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
