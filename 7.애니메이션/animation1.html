@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>setInterval</title>
+    <style>
+      input{ margin-bottom: 30px; }
+      #box1{ position: absolute; left: 10px;
+        width: 100px; height: 100px;
+        background: #ff8b9c;  }
+    </style>
+  </head>
+  <body>
+    <input type="button" value="플레이">
+    <div id="box1"></div>
+    <script>
+      var box1 = document.getElementById('box1');
+      var button = document.querySelectorAll('input')[0];
+      var i = 10;
+      var timer;
+      box1.style.left = '10px';
+      function moving(){
+        timer = setInterval(function(){
+                  if(parseInt(box1.style.left) <= 300 )
+                    box1.style.left = parseInt(box1.style.left) + i + "px";
+                  else {
+                    clearInterval(timer);
+                    box1.style.left = "10px";
+                  }
+                }, 10); // setinterval
+        }// moving
+
+      button.onclick = moving;
+    </script>
+  </body>
+</html>
