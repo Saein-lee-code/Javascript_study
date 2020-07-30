@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>마우스우클릭방지</title>
+    <script>
+
+        document.onmousedown = click;
+        function click () {
+            if(event.button == 2){
+                alert("죄송합니다. \n 오른쪽 마우스는 사용할 수 없습니다.");
+            }
+        }
+        //  1:왼쪽버튼, 2:오른쪽버튼, 4:가운데버튼
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
