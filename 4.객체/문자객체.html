@@ -1,0 +1,32 @@
+<!DOCTYPE html >
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title> 문자 객체 </title>
+        <script>
+
+             var string="Hello Thank you good luck to you";
+
+             document.write(string.charAt(16),"<br>"); //g
+             document.write(string.indexOf("you"),"<br>"); //12 you index number
+             document.write(string.indexOf("you",16),"<br>"); //16번째 이후의 you
+             document.write(string.lastIndexOf("you"),"<br>");
+             document.write(string.lastIndexOf("you",25),"<br>");
+             document.write(string.match("luck"),"<br>");// luck을 찾아내서 출력
+             document.write(string.search("you"),"<br>");
+             document.write(string.substr(21,4),"<br>");
+             document.write(string.substring(6,12),"<br>");
+             document.write(string.replace("you","me"),"<br>");
+             document.write(string.length,"<br>");
+
+             var t = "javascript";
+             var s = t.split("");
+             console.log(s);
+             document.write(s[0],"<br />");
+             document.write(s[4],"<br />");
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
