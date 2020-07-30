@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>삼수 사용 방법</title>
+    <style>
+        .container { width: 800px; margin: 30px auto; }
+        h2, h3 { text-align: center; }
+        .container1 { width: 600px; margin: 0 auto; }
+        .container1 img { float: left; margin-right: 40px; }
+        .container1 ul { list-style: none; padding-top: 40px; }
+        .container1 ul li{ margin-bottom: 20px; }
+        .container1 li:nth-child(1) { margin-top: 20px; }
+        .container1 li:nth-child(3) { text-align: center; }
+        .container1 ul li label { width: 80px; float: left; text-align: right; margin-right: 10px; }
+        .container1 ul li input { width: 150px; padding: 5px 10px; }
+        .container button { width: 170px; height: 35px; margin-left: 40px; font-size: 0.9em; background-color: black; color: white; border: none; border-radius: 10px;}
+        #result { clear: both; width: 150px; margin: 150px auto; text-align: left; font-weight: bold; font-size: 20px; }
+        
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <h2>코리아 백화점</h2>
+        <h3>할인 판매</h3>
+        <div class='container1'>
+            <img src="images/sale.png" alt="SALE" width="250">
+            <ul>
+                <li>
+                    <label for="price">정가</label><input type="text" id="price" required> 원
+                </li>
+                <li>
+                    <label for="rate">할인율</label><input type="text" id="rate" required> %
+                </li>
+                <li>
+                    <button>할인 가격 계산하기</button>
+                </li>
+            </ul>
+        </div>
+        <div id="result"></div>
+        <script>
+            // var price = document.getElementById('price').value;
+            var price = document.querySelector('#price');            
+            //  var rate = document.getElementById('rate').value;
+            var rate = document.querySelector('#rate');
+            var btn = document.getElementsByTagName('button')[0];
+            var result = document.getElementById('result');            
+
+            btn.onclick = function(){                
+                if(price.value == 0){
+                    alert("가격을 입력해 주세요.");
+                }else if(rate.value == 0){
+                    alert("할인율을 입력해 주세요.")
+                }else{
+                    result.innerHTML = `정가 : ${price.value}원<br>
+                                        할인율 : ${rate.value}%<br>
+                                        할인가 : ${price.value - (price.value * (rate.value * 0.01))}원`;
+                }
+            }
+            
+        </script>
+    </div>
+    
+</body>
+</html>
