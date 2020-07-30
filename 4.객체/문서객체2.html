@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="wrap">
+      <p>내용1</p>
+      <p>내용2</p>
+      <p>내용3</p>
+      <p>내용4</p>
+    </div>
+    <a href="#" id="goLink">내용5</a>
+    <script>
+      var wrap = document.getElementById('wrap');
+      // document.get... 이렇게도 가능
+      // wrap.getElementsByTagName('p')[0].style.color = "#f00"
+
+      // wrap.firstChild.style.color = "#f00"; error
+
+      // wrap.firstChild.nextSibling.style.color = "#f00"; 공백 다음
+      // wrap.children[0].style.color = "#f00";
+      // 두번째
+      var p  = document.getElementsByTagName("p")[1]; // 두번째 p태그
+      // p.nextSibling.nextSibling.style.backgroundColor = "yellow";
+      var tagDiv = document.getElementById('wrap').nodeType;// 1반환
+      var tagDivChild = document.getElementById('wrap').firstChild.nodeType; // 3반환
+      var tagA = document.getElementById('goLink').getAttributeNode('href').nodeType; // 2반환
+
+      console.log(tagDiv, tagDivChild, tagA)
+      // 1. Element_node(p) 3. Text_node(공백) 2. Attribute_node(href)
+      //
+
+      // document.getElementById("wrap").children[0].style.color = "red";
+      var nextObj = p.nextSibling;
+      console.log(nextObj.nodeType); // 공백 Text_node
+        // 1이아니면 nextSibling을 붙여라.
+      while( nextObj.nodeType != 1) {
+        nextObj = nextObj.nextSibling;
+      }
+      console.log(nextObj.nodeType); // 공백 Text_node
+
+      nextObj.style.backgroundColor = "yellow";
+      for( var name in Node ){
+        console.log(name, Node[name]);
+      }
+
+    </script>
+  </body>
+</html>
