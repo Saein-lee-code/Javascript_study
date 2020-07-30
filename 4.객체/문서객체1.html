@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+   <meta charset="utf-8">
+   <title> DOM 객체 </title>
+   </head>
+   <body>
+      <div>
+         <h1>선호하는 음식</h1>
+         <div id="food_1">
+            <h2 id="title">한식</h2>
+            <ol>
+               <li><a href="#">김치</a></li>
+               <li>불고기</li>
+               <li>비빔밥</li>
+            </ol>
+         </div>
+         <div id="food_2">
+            <h2>양식</h2>
+            <ol id="list">
+               <li>돈까스</li>
+               <li id="pizza">피자</li>
+               <li>파스타</li>
+            </ol>
+         </div>
+      </div>
+      <script>
+         let heading = document.getElementsByTagName('h1')[0];
+         heading.style.color = "green";
+         let heading2 = document.getElementById('title');
+         heading2.style.color = "red";
+         let list = document.getElementById('food_1').getElementsByTagName("li")[1];
+         list.style.backgroundColor = "red";
+         let divTag = document.getElementById('food_1').parentElement;
+         divTag.style.backgroundColor = "beige";
+         // document.getElementById('food_1').parentNode.style.backgroundColor = "beige"
+        // node는 줄기를 가지고 있는 것. 공백도 하나의 Node 이다. 부모는 공백있는 node는 없음.
+
+        // 자식만 공백을 node로 인식.
+         // document.getElementById('food_2').children[0].style.color = "blue";
+         document.getElementById('food_2').childNodes[1].style.color = "blue"; // [0]적용 안됌. [1]로 해야함.
+      </script>
+   </body>
+</html>
