@@ -55,6 +55,47 @@
         document.write(s1 + "<br>");
         document.write(s2 + "<br>");
         
+        function Student(name, kor, eng, mat){
+            this.name = name;
+            this.kor = kor;
+            this.eng = eng;
+            this.mat = mat;
+
+            // method
+            this.sum = function() {
+                return this.kor + this.eng + this.mat;
+            }
+            // property 속성 (변수)
+            this.ave = this.sum () / 3;
+            // method로 만들고싶으면
+            /*
+                this.ave = function(){
+                    return this.sum() / 3;
+                }
+            */
+        }
+        }
+
+        var s1 = new Student('이익준', 92, 93, 93);
+        document.write(`${s1.name}, ${s1.kor}점, ${s1.eng}점, ${s1.mat}점 총점: ${s1.sum()} 평균: ${s1.ave.toFixed(2)}`);
+         var s2 = new Student('삼익준', 92, 93, 93);
+        var s3 = new Student('사익준', 92, 93, 93);
+        var s4 = new Student('오익준', 92, 93, 93);
+
+        var students = [s1, s2, s3, s4];        
+        /*
+            var students = [
+                new Student('삼익준', 92, 93, 93);
+                new Student('사익준', 92, 93, 93);
+                new Student('오익준', 92, 93, 93);
+            ]
+        */
+        
+        for(var i in students){
+            document.write(students[i].showInfo());
+        }
+        
+        
     </script>
 </body>
 </html>
