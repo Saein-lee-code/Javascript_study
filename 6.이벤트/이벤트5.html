@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>이벤트의 디폴트 행동 취소</h1>
+    <a href="http://www.naver.com">
+      <img src="image/apple.png" alt="사과">
+      네이버로 이동할 지 물어보는 링크
+    </a>
+    <hr>
+    <form action="">
+      <input type="checkbox">빵(체크 O)<br>
+      <input type="checkbox">술(체크 X)
+    </form>
+
+    <script>
+       // querySelect (무조건 제일 처음것)
+       // querySelectAll (a가 여러개일때 [index])
+
+      var input = document.querySelectorAll('input')[1];
+      var a = document.querySelectorAll('a')[0];
+      var img = document.querySelectorAll('img')[0];
+      input.onclick = function() {
+        event.preventDefault();
+      }
+      a.onclick = function(){
+        var move = confirm('네이버로 이동 하시겠습니까?');
+        if(move == false){
+          this.children[0].src = "image/banana.png";
+          event.preventDefault();
+        }
+        return move;
+      }
+
+      
+    </script>
+  </body>
+</html>
