@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>onload로 이미지크기 출력하기</h1>
+    <hr>
+    <form action="">
+      <select id="fruit">
+        <option value="image/apple.png">사과</option>
+        <option value="image/banana.png">바나나</option>
+        <option value="image/mango.png">망고</option>
+      </select>
+      <span id="mySpan">이미지 크기</span>
+    </form>
+    <p><img id="myImg" src="image/apple.png" alt=""></p>
+    <script>
+    // selectedIndex 선택된 옵션 인덱스
+    // options[index].value
+    // 이미지크기는 width, height
+    var fruit = document.getElementById('fruit');
+    function changeImage(){
+      var myImg = document.getElementById('myImg');
+      var mySpan = document.getElementById('mySpan');
+      var index = fruit.selectedIndex;
+
+      // var imgPath = "image/" + imgSrc + ".png";
+      // myImg.setAttribute("src", imgPath);
+
+      myImg.onload = function(){
+        mySpan.innerText = myImg.width + " x " + myImg.height;
+      }
+        myImg.src = fruit.options[index].value;
+        //myImg.setAttribute("src", fruit.options[index].value);
+    }
+    changeImage();
+    fruit.onchange = changeImage;
+
+    </script>
+  </body>
+</html>
