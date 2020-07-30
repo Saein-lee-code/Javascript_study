@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>new image()로 이미지 로딩</h1>
+    <hr>
+    <img src="image/Desert.png" alt="">
+    <script>
+      var files = ['image/Desert.png', 'image/Chrysanthemum.png', 'image/Hydrangeas.png', 'image/Jellyfish.png', 'image/Koala.png', 'image/Lighthouse.png', 'image/penguins.png', 'image/Tulips.png'];
+      var imgs = new Array();
+      for(var i=0; i < files.length; i++){
+        imgs[i] = new Image();// img 태그 생성
+        imgs[i].src = files[i];
+        console.log(imgs[i].src);
+      }
+
+      var img = document.querySelector('img');
+      var next = 1;
+      function change(){
+        img.src = imgs[next].src;
+        next++;
+        if(next == imgs.length){
+          next = 0;
+        }
+        //next = next % imgs.length; next = 0
+      }
+      img.onclick = change;
+    </script>
+  </body>
+</html>
