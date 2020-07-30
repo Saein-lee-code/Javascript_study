@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>resize</title>
+  </head>
+  <body>
+    <h1>카운팅</h1>
+    <script>
+      var num = 0;
+      var heading = document.querySelector("h1");
+      function resizing() {
+        num++;
+        heading.innerText = num;
+      }
+      window.onresize = function(){
+        resizing();
+      }
+    </script>
+  </body>
+</html>
