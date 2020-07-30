@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      div{ height: 2000px; }
+      h1 { position: fixed; top: 0; left: 0; }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>카운팅</h1>
+    </div>
+    <script>
+      var num = 0;
+      var heading = document.querySelector("h1");
+      function resizing() {
+        num++;
+        heading.innerText = num;
+      }
+      window.onscroll = function(){
+        resizing();
+      }
+    </script>
+  </body>
+</html>
