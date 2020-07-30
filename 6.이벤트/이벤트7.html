@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>마우스좌표</title>
+    <style>
+      img { position: absolute; }
+    </style>
+  </head>
+  <body>
+    <img src="image/strawberry.png" alt="딸기">
+    <script>
+      // 이미지 위치값 = 마우스 위치값
+      var img = document.querySelector('img');
+      // document = 최상위
+      document.onmousemove = function(){
+        img.style.left = event.clientX + 'px';
+        img.style.top = event.clientY + 'px';
+      }
+
+    </script>
+  </body>
+</html>
