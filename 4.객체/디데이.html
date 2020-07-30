@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    h1 { margin-top: 100px; }
+  </style>
+  </head>
+  <body>
+    <h1>11</h1>
+    <script>
+      let heading = document.querySelector('h1');
+      // today
+      let today = new Date();
+      let myBirth = new Date(1991, 11, 30)
+      // let nowYear = today.getFullYear();
+      // 말일 날짜
+      let lastDay = new Date(nowYear, 11, 31)
+      // 말일 - 오늘
+      let interval = Math.ceil((lastDay - today) / (60*60*24*1000));
+      let dday = Math.ceil((lastDay - myBirth) /  (60*60*24*1000));
+      // heading.innerHTML = "올해 남은 날수는 " + interval + "입니다.";
+      heading.innerHTML = "올해 남은 날수는 " + dday + "입니다.";
+    </script>
+  </body>
+</html>
