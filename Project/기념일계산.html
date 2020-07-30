@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기념일 계산 프로그램</title>
+    <style>
+        body { padding:0; margin: 0; }
+        .container{ width: 450px; margin: 20px auto; border: 1px solid black; }
+        .day1 { text-align: center; padding: 20px 0; background-color: cadetblue; }
+        .day1 h3 { font-size: 1.5em; color: white; margin: 0; padding: 20px 0; }
+        .day1 p { font-weight: bold; color: #222; margin: 0; padding: 0; }
+        .day1 .accent { font-style: italic; font-size: 1.1em; color: blueviolet; }
+        .day1 #passed { color: white; }
+
+        .bar { background-color: #162522; color: #fff; font-size: 1.1em; padding-left: 15%; }
+        .bar input { margin: 0 20px; width: 120px;}
+        .bar button { border: none; background-color: cornsilk; }        
+        .bar p { padding: 10px 0; margin: 0; }
+        
+        .day2 { margin: 0; padding: 0; height: 551px; }
+        .day2 ul { list-style: none; height: 60px; border-bottom: 1px dashed #ccc; background: #edffd9; padding: 10px 0 10px 50px; margin: 0; }
+        .day2 .item_title { float: left; width: 160px; font-size: 1.5em; line-height: 60px; }
+        .day2 .item_date { font-size: 1.2em; color: #222; text-align: left; margin-left: 200px; line-height: 60px; }
+        .day2 ul:last-child { border: none; margin-bottom: 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="day1">
+            <h3>기념일 계산 프로그램</h3>
+            <p>기념일로부터 <span class="accent">몇일</span>이 지났는지를 계산합니다.</p>
+            <p>기념일로부터 <span id="passed"></span>이 지났습니다.</p>
+        </div>
+        <div class="bar">
+            <p>날짜를 입력하세요<label for="startDate"><input type="date" id="startDate" placeholder="yyyy-mm-dd"></label><button>계산</button></p>
+        </div>
+        <div class="day2">
+            <ul>
+                <li class="item_title">만난 날</li>
+                <li class="item_date" id="startDay"></li>
+            </ul>
+            <ul>
+                <li class="item_title">100일</li>
+                <li class="item_date" id="date100"></li>
+            </ul>
+            <ul>
+                <li class="item_title">200일</li>
+                <li class="item_date" id="date200"></li>
+            </ul>
+            <ul>
+                <li class="item_title">1년</li>
+                <li class="item_date" id="date365"></li>
+            </ul>
+            <ul>
+                <li class="item_title">500일</li>
+                <li class="item_date" id="date500"></li>
+            </ul>
+            <ul>
+                <li class="item_title">2년</li>
+                <li class="item_date" id="date730"></li>
+            </ul>
+            <ul>
+                <li class="item_title">1000일</li>
+                <li class="item_date" id="date1000"></li>
+            </ul>
+        </div>
+        <div class="calc">
+            <p></p>
+        </div>
+    </div>
+    <script>
+        var btn = document.getElementsByTagName('button')[0];
+        btn.onclick = function(){            
+            let start = new Date(document.querySelector("#startDate").value);        
+            let now = new Date();
+            let year = start.getFullYear();
+            let month = start.getMonth() + 1;
+            let day = start.getDate();
+            document.querySelector("#startDay").innerHTML = year + "년 " + month + "월 " + day + "일";
+
+            let startTime = start.getTime();
+            let todayTime = now.getTime();
+            let pass = todayTime - startTime;
+            let calcDay = (24 * 60 * 60 * 1000);
+            document.querySelector('#passed').innerHTML = (Math.floor(pass/calcDay) + 1) + "일";
+
+            function calcDate(days){
+                // day 는 일로 받음
+                let anni = (days - 1) * calcDay;
+                let newPass = startTime + anni; // 기념일 - 경과일
+                let newPassDay = new Date(newPass);
+                let newYear = newPassDay.getFullYear();
+                let newMonth = newPassDay.getMonth() + 1;
+                if(newMonth < 10){
+                    newMonth = "0" + newMonth;
+                }
+                let newDay = newPassDay.getDate();          
+                return newYear + "년 " + newMonth + "월 " + newDay + "일";
+            }
+
+            document.querySelector("#date100").innerHTML = calcDate(100);
+            document.querySelector("#date200").innerHTML = calcDate(200);
+            document.querySelector("#date365").innerHTML = calcDate(365);
+            document.querySelector("#date500").innerHTML = calcDate(500);
+            document.querySelector("#date730").innerHTML = calcDate(730);
+            document.querySelector("#date1000").innerHTML = calcDate(1000);
+        }
+    </script>
+</body>
+</html>
