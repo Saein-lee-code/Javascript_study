@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title> 자동차 견적서 </title>
+    <meta charset="utf-8">
+    <style>
+        /* 초기화 */
+        * { margin: 0; padding: 0; }
+        body { font: 12px/1.5 dotum,"돋움", gulim, "굴림", sans-serif; }
+        li { list-style:none; }
+        table { border-collapse: collapse; border-spacing: 0; }
+
+        h1 { text-align:center; }
+        #carZone { width:600px; margin:0 auto; }
+        #estimate { width:100%; }
+        #estimate th, td { border: 1px solid #ccc; height: 30px; }
+        #estimate th { background-color: #333; color: #fff;}
+        #carZone td { text-align: center;}
+        tfoot { font-size: 15px; font-weight: bold;}
+        #total { border: none 0; background: none;
+                  font-size: 1.5em; font-weight :bold; text-align: center; }
+      </style>
+  </head>
+  <body>
+    <h1>자동차 견적</h1>
+    <div id="carZone">
+      <table id="estimate">
+        <caption><img src="image/car1.jpg" alt="자동차" /></caption>
+        <colgroup>
+          <col width="380px" />
+          <col width="160px" />
+          <col width="*" />
+        </colgroup>
+
+        <thead>
+        <tr>
+          <th scope="row">옵 션</th>
+          <th scope="row">추가 가격</th>
+          <th scope="row">선택</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+          <td><label for="opt1">인조가죽시트</label></td>
+          <td>250000</td>
+          <td>
+            <!-- 옵션 체크박스에 클릭할 때 마다 car()에 저장된 일련의 실행문을 실행합니다. -->
+            <input type="checkbox" name="opt" id="opt1" value="250000">
+          </td>
+        </tr>
+        <tr>
+          <td><label for="opt2">내비게이션</label></td><td>250000</td>
+          <td><input type="checkbox" name="opt" id="opt2" value="250000"></td>
+        </tr>
+        <tr>
+          <td><label for="opt3">선루프</label></td><td>440000</td>
+          <td><input type="checkbox" name="opt" id="opt3" value="440000"></td>
+        </tr>
+        </tbody>
+
+        <tfoot>
+        <tr>
+          <th  scope="col">(기본)차량가격</th>
+          <td colspan="2">
+            <input type="text" name="total" id="total" value="13450000" readonly="readonly">
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+    <script>
+
+      /* 자동차 옵션 체크 박스를 클릭할 때 마다 함수 정의문 내에 일련의 실행문을 실행합니다. */
+      var opt = document.getElementsByName('opt');
+      var total = document.getElementById("total").defaultValue;
+      total = parseInt(total);
+      // var total = Number(document.getElementById("total").defaultValue);
+
+      function car() {
+        for ( var i = 0; i < opt.length; i++ ) {
+          opt[i].onclick = function(){
+            if(this.checked){
+              total += parseInt(this.value);
+            }else {
+              total -= parseInt(this.value)
+            }
+              console.log(total)
+          }
+        }
+      }
+      for(var i=0; i<3; i++){
+        var chkObj = document.getElementsByName('opt');
+        chkObj[i].onclick = car;
+      }
+
+
+
+      /* 자동차 옵션 체크 박스를 클릭할 때 마다 함수 정의문 내에 일련의 실행문을 실행합니다. */
+      //
+      // function car() {
+      //   // defaultValue는 <input>에 초기에 입력된 value의 값을 기억해 가져옵니다.
+      //   // document.getElementById("total").defaultValue
+      //   var basic_car = Number(document.getElementById("total").defaultValue );
+      //
+      //   // 1부터 3까지 반복문을 실행합니다.
+      //   // id의 값이 opt1부터 opt3까지 체크 박스에 체크가 되어있으면 추가 가격을 누적시킵니다.
+      //   for ( var i = 1; i <= 3; i++ ) {
+      //     var chkObj = document.getElementById( "opt"+i );
+      //       if ( chkObj.checked ) basic_car+=Number(chkObj.value);
+      //     }
+      //   /* 위에서 더해진 가격을 id의 값이 total인 요소의 value의 값으로 입력합니다. */
+      //   document.getElementById("total").value = basic_car;
+      // }
+      //
+      // for ( var i = 1; i <= 3; i++ ) {
+      //   var chkObj = document.getElementById( "opt"+i );
+      //   chkObj.onclick = car
+      // }
+
+
+    </script>
+  </body>
+</html>
