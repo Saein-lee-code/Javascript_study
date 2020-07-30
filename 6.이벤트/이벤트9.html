@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>scroll event</title>
+    <style>
+      body { height: 2000px; margin: 0; }
+      div{ height: 500px; background: #6b9068; }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <script>
+       // 스크롤 강제 이동
+      //window.scrollBy(200, 500) // 현재위치
+      //window.scrollTo(200, 500) // 절대위치
+
+      // get scroll position
+      var y = window.scrollY; // window pageYOffset 둘다 넣어주는게 무방.
+      var div = document.getElementsByTagName('div')[0];
+      console.log(y);
+      function bgChangeColor(){
+        if(window.scrollY >= 500 && window.scrollY < 900){
+          document.body.style.backgroundColor = "#eee07c";
+        }else if(window.scrollY >= 900){
+          document.body.style.backgroundColor = "#f96f6f";
+        }
+      }
+      window.onscroll = bgChangeColor;
+
+
+    </script>
+  </body>
+</html>
