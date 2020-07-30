@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>버튼으로 색상보정하기</title>
+    <style>
+      div{ width: 400px; height: 400px;
+            background: #ad4869; margin-bottom: 30px;
+            border: 1px solid black;
+            transition: 0.5s;
+            }
+      .color1{ background-color: #8baadf; }
+      .color2{ background-color: #c744d7; }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <button>색상변경1</button>
+    <button>색상변경2</button>
+    <script>
+      window.onload = function(){
+        var div = document.querySelector('div');
+        var button = document.querySelectorAll('button');
+        button[0].onclick = function(){
+          // div.style.backgroundColor = "#8baadf"
+          // div.style.transition = "0.5s"
+          div.setAttribute("class", "color1")
+        }
+        button[1].onclick = function(){
+          // div.style.backgroundColor = "#c744d7"
+          // div.style.transition = "0.5s"
+          div.setAttribute("class", "color2")
+        }
+      }
+
+    </script>
+  </body>
+</html>
