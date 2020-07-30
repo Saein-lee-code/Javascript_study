@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숙제 가위바위보</title>
+    <style>
+        .container{ width: 340px; margin: 0 auto; border: 5px dotted skyblue; padding: 20px; text-align: center; }         
+        img { box-shadow:3px 3px 10px black;} 
+        .accent { font-size: 24px; }
+    </style>
+</head>
+<body>    
+    <div class='container'>
+        <h2>가위바위보 게임</h2>
+    <script>      
+        var replay = true;  
+        function game(){
+            while(replay){
+                var user = prompt("가위, 바위, 보!", "가위");            
+                var computer = Math.floor(Math.random() * 3) + 1;
+                console.log(computer)
+                document.write("<b><span style='font-size:20px'>COMPUTER<br></b></span><br><img src = 'images/math_img_" + computer + ".jpg'><br><br>");            
+                switch (user){
+                    case "가위": user = 1; break;
+                    case "바위": user = 2; break;
+                    case "보": user = 3; break;ddw
+                    default: "잘못된 값입니다."; break;
+                }
+                document.write("<b><span style='font-size:20px'>USER<br></b></span><br><img src = 'images/math_img_" + user + ".jpg'><br>");        
+                document.write("<div class='accent'><br><br><b>결과: <br>");
+                if(user > computer || (user == 1 && computer == 3)){
+                    document.write("USER 가 이겼습니다!");
+                }else if(user < computer || (user == 3 && computer == 1)){
+                    document.write("COMPUTER 가 이겼습니다!");                
+                }else if(user == computer){
+                    document.write("비겼습니다!");                
+                }else{
+                    document.write("잘못된 값입니다.");
+                }
+                document.write("</div>");
+                replay = false;                
+            }
+        }
+      
+        function asking(){
+            var ask = prompt("게임을 계속 하시겠습니까? (0: no, 1: yes)", 0);            
+            if(ask == 1){
+                location.reload();                  
+            }else{
+                replay = false;
+                alert("게임이 종료 되었습니다.");
+            }
+        }
+
+        game();
+        setTimeout(asking, 1000);
+    </script>
+    </div>
+</body>
+</html>
