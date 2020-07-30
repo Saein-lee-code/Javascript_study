@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <img src="image/Tulips.png" alt="튤립">
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <script type="text/javascript">
+      var img = document.querySelector('img');
+      var p = document.querySelectorAll('p');
+      //screenX, screenY, pageX, pageY
+      //clientX, clientY, offsetX, offsetY
+      img.onmousemove = function(){
+        p[0].innerText = "screenX : " + event.screenX + ", screenY : " + event.screenY;
+        // HTML기준
+        p[1].innerText = "pageX : " + event.pageX + ", pageY : " + event.pageY;
+        // 화면기준
+        p[2].innerText = "clientX : " + event.clientX + ", clientY : " + event.clientY;
+        p[3].innerText = "offsetX : " + event.offsetX + ", offsetY : " + event.offsetY;
+      }
+
+    </script>
+  </body>
+</html>
