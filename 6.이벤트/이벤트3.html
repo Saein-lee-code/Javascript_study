@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML 태그에 리스너 작성</title>
+  </head>
+  <body>
+    <h1>HTML 태그에 리스너 작성</h1>
+    <hr>
+    <p>마우스 올리면 orchid 색으로 변경</p>
+    <script>
+      var pTag = document.getElementsByTagName('p')[0];
+      pTag.style.fontSize = "20px";
+      pTag.onmouseover = function(){
+        pTag.style.backgroundColor = "#cbafb5";
+      }
+      pTag.addEventListener('mouseout', function(){
+        pTag.style.backgroundColor = "white";
+      })
+      pTag.onmousedown = function(){
+        pTag.style.color = "yellow";
+        pTag.style.fontWeight = "bold";
+      }
+      pTag.addEventListener('mouseup', function(){
+        pTag.style.color = "blue";
+        pTag.style.fontWeight = "normal";
+      })
+      var num = 0;
+      pTag.addEventListener('dblclick', function(){
+          if(num == 0){
+          this.style.color = "red";
+            num = 1;
+          }else{
+            this.style.color = "black";
+            num = 0;
+          }
+      })
+    </script>
+  </body>
+</html>
