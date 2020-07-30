@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>변수</title>
+    <script>
+      var string1 = "hello1";
+      // var string1 = "hello11111"; // 중복선언 가능
+      console.log(string1)
+      if( true ){
+        var string1 = "hello11111";
+      }
+      console.log(string1)
+
+      let string2 = "hello2";
+      // string2 = "hello22222"; // let string2 = something (error) 중복 선언 안됌
+      console.log(string2)
+      // block scope
+      if( true ){
+        let string2 = "hello22222"; // 이름은 같은데 다른 string2임
+        console.log("지역변수 string2: " + string2)
+      }
+      console.log("전역변수 string2: " +string2)
+
+      const string3 = "hello3";
+      // string3 = "hello33333"; 한번 값을 지정해주면 바꿀 수 없다.
+      console.log(string3)
+      if( true ){
+        const string3 = "hello3333";
+        console.log("지역변수 string3: " + string3)
+      }
+      console.log("전역변수 string3: " +string3)
+
+      // // string2 = "hello22222"; // let string2 = something (error) 중복 선언 안됌
+      // console.log(string2)
+      // let string2 = "hello2";
+      // // string2 = "hello22222"; // let string2 = something (error) 중복 선언 안됌
+      // console.log(string2)
+      //
+      // const string3 = "hello3";
+      // // string3 = "hello33333"; 한번 값을 지정해주면 바꿀 수 없다.
+      // console.log(string3)
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
