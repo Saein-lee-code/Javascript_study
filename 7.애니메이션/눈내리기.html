@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>눈내리는 애니메이션</title>
+    <style>
+      body { margin: 0; background: #08181d; }
+      .snow{ position: absolute; font-size: 30px; color: white; }
+    </style>
+  </head>
+  <body>
+    <script>
+      // 빈 30개의 div 배열 선언
+      var snow = new Array(30);
+      var x = new Array(30);
+      var y = new Array(30);
+      var speed = new Array(3);
+      var timer;
+      makeSnow();
+
+      // 눈의 갯수, 눈 위치 (X,Y), 눈속도
+      function makeSnow(){
+        for(var i=0; i<snow.length; i++){
+          x[i] = Math.floor(Math.random() * window.innerWidth - 50);
+          y[i] = Math.floor(Math.random() * window.innerHeight - 50);
+          speed[i] = (Math.random() * 2) + 2;
+          // var divTag = document.createElement('div');
+          var divTag = "<div class='snow' id='snow" + i + "' style='left:" +x[i]+"px; top:" + y[i] + "px;'>*</div>";
+          document.write(divTag);
+          snow[i] = document.getElementById("snow" + i);
+        }
+      }
+      function fallSnow(){
+        for(var i=0; i<snow.length; i++){
+          if(y[i] > window.innerHeight - 100){
+            x[i] = Math.floor(Math.random() * window.innerWidth - 50);
+            y[i] = -100;
+          }
+          y[i] = y[i] + speed[i];
+          snow[i].style.top = y[i] + "px";
+        }
+        timer = setTimeout(fallSnow, 30);
+      }
+
+      fallSnow();
+    </script>
+  </body>
+</html>
