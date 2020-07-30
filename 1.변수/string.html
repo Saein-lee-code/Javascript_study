@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>문자열</title>
+    <script>
+       let str = "abcde";
+       console.log(str.length)
+       console.log(str["length"]) // 위에랑 같음
+
+       let str2 = "fghijk"
+       // let str3 = str.concat(str2) // concat은 'add'
+       let str3 = str + str2
+       console.log(str3)
+       console.log("aaa".concat(3)) // 앞에 문자열이여야함. 문자열.concat(something)
+
+       let str4 = "가나다라마바사";
+       console.log(str4.charAt(0)) // 문자열.charAt(index) 가
+       console.log(str4.charAt(str4.length - 1))
+       console.log(str4[3])
+
+       let str5 = "I love Javascript!";
+       console.log(str5.substring(2, 6)) //index 2 ~ 처음부터 6글자 수 까지 love
+       console.log(str5.substr(2, 6)) // 앞에 index 부터 6글자수 까지 love J
+    </script>
+  </head>
+  <body>
+    <img src="pic_1.jpg" alt="">
+    <script>
+      var imgPath = document.getElementsByTagName('img')[0];
+      var fileName = imgPath.getAttribute('src')
+      console.log(fileName) // pic_1.jpg
+      let strName = fileName.substr(0, 3)
+      console.log(strName) // pic
+
+
+    </script>
+  </body>
+</html>
