@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>조별발표 순서 정하기</title>
+  </head>
+  <body>
+    <h1>조별발표 순서 정하기</h1>
+    <ol>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+    <button id="btn">클릭!</button>
+    <script>
+    var btn = document.getElementById('btn');
+      function select(){
+        var i = 0;
+        var rand = 0;
+        var groupList = ['1조', '2조', '3조', '4조'];
+        while(groupList.length > 0){
+          //그룹 리스트 인덱스 랜덤번호
+          rand = Math.floor(Math.random() * groupList.length);
+          //각 li를 변수로 지정
+          var li = document.querySelectorAll('li');
+          //li에 그룹리스트를 랜덤으로 출력
+          li[i].innerText = groupList[rand];
+          //출력한 조는 다음 반복때 제거
+          groupList.splice(rand, 1);
+          //그룹 리스트 증가
+          i++;
+        }
+      }
+
+      btn.onclick = select;
+
+    </script>
+  </body>
+</html>
