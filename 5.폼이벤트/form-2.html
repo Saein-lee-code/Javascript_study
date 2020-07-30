@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>선택된 라디오버튼 값 출력</title>
+  </head>
+  <body>
+    <h1>버튼을 클릭하면 선택된 라디오 버튼의 value를 출력합니다.</h1>
+    <hr>
+    <form action="">
+      <label><input type="radio" name="city" value="seoul">서울</label>
+      <label><input type="radio" name="city" value="busan">부산</label>
+      <label><input type="radio" name="city" value="chuncheon">춘천</label>
+      <label><input type="button" value="find checked"></label>
+    </form>
+    <p></p>
+    <script>
+      var cityName = null;
+      var p = document.querySelector('p');
+      var city = document.getElementsByName('city');
+      var button = document.querySelector('input[type=button]')
+      console.log(city)
+      function checking(){
+        for(var i=0; i<city.length; i++){
+          if(city[i].checked == true){
+            cityName = city[i].value;
+          }
+          if(cityName != null){
+            p.innerText = cityName;
+          }else{
+            p.innerText = "아무것도 선택되지 않았습니다."
+          }
+        }
+      }
+      button.onclick = checking;
+    </script>
+  </body>
+</html>
