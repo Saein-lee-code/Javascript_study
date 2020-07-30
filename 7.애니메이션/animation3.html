@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>타자치는 효과</title>
+    <style>
+      #box{ font-size: 100px; }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+      var box = document.getElementById('box');
+      var cons = "Hello! JavaScript!".toUpperCase();
+      var timer;
+      var i = cons.length;
+      // function typing(){
+      //   if(num < cons.length)
+      //     box.innerHTML += cons.charAt(num);
+      //     // box.innerHTML += cons[i]
+      //   timer = setTimeout(typing, 100);
+      //   num++;
+      // }
+      // setTimeout(typing, 1000);
+      box.innerHTML = cons;
+      function removing(){
+        if( i > 0)
+          cons = cons.substr(0, i-2);
+        // console.log(cons)
+        box.innerHTML = cons;
+        i--;
+        timer = setTimeout(removing, 100);
+      }
+      setTimeout(removing, 1000);
+    </script>
+  </body>
+</html>
