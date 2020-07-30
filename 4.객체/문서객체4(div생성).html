@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      #myDiv { background: #ff0; }
+    </style>
+  </head>
+  <body>
+    <div id="parent" >
+      <h1>삭제될 제목</h1>
+      <button>DIV 생성</button>
+    </div>
+
+    <script>
+    // 생성하고 추가
+      var parent = document.getElementById('parent');
+      var btn = document.getElementsByTagName('button')[0];
+      // var newDiv = document.createElement('div');
+      // console.log(newDiv);
+      // btn 뒤에 붙여주기
+      // parent.appendChild(newDiv);
+      // newDiv.innerHTML = "Hello";
+      // // newDiv.style.backgroundColor = "yellow";
+      // newDiv.setAttribute("id", "myDiv");
+
+      function createDiv() {
+
+        var newDiv = document.createElement('div');
+        parent.appendChild(newDiv);
+        newDiv.innerText = "새로 생성된 DIV 입니다."
+        newDiv.setAttribute("id", "myDiv")
+        newDiv.onclick = function(){
+          // parent.removeChild(this)
+          var myParent = this.parentElement;
+          console.log(myParent);
+          myParent.removeChild(this)
+        }
+      }
+
+      btn.onclick = createDiv;
+      var heading = document.querySelector('h1');
+      parent.removeChild(heading);
+
+    </script>
+  </body>
+</html>
