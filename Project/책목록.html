@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{ width: 500px; margin: 30px auto; border: 1px solid gray; box-shadow: 2px 2px 10px gray; text-align: center; background: #eef2f0; position: relative; }
+        .container ul { list-style: none; }
+        .container li{ text-align: right;  }
+        .btn { display: inline-block; padding-left: 180px; padding-right: 60px; padding-bottom: 20px; }
+        .btn .btn_style { margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>밀리의 서재에서 읽은 책</h1>
+        <ul>
+            <li>오만과 편견<div class="btn"><input type="button" class="btn_style confirm" value="확인"><input type="button" value="삭제"></div></li>
+            <li>레미제라블<div class="btn"><input type="button" class="btn_style confirm" value="확인"><input type="button" value="삭제"></div></li>
+            <li>노인과 바다<div class="btn"><input type="button" class="btn_style confirm" value="확인"><input type="button" value="삭제"></div></li>
+            <li>전쟁과 평화<div class="btn"><input type="button" class="btn_style confirm" value="확인"><input type="button" value="삭제"></div></li>
+        </ul>
+        <div class="result"></div>
+    </div>
+    <script>
+        var confirm = document.getElementsByClassName("confirm");
+        var result = document.querySelector(".result");
+        function Book(title, author, volume, price){
+            this.title = title;
+            this.author = author;
+            this.volume = volume;
+            this.price = price;
+        }
+        
+        var book_list = [
+            new Book("오만과 편견", "제인 오스틴", 1, 12600),
+            new Book("레미제라블", "빅토르 위고", 1, 16200),
+            new Book("노인과 바다", "어니스트 허밍웨이", 1, 7200),
+            new Book("전쟁과 평화", "톨스토이", 1, 16000)
+        ];
+
+        Book.prototype.showInfo = function(){
+            return `저자: ${this.title} <br>
+                    작가: ${this.author} <br>
+                    volume: ${this.volume} <br>
+                    가격: ${this.price}`;
+        }
+        
+        confirm[0].onclick = function(){
+            result.innerHTML = book_list[0].showInfo();
+        }
+        confirm[1].onclick = function(){
+            result.innerHTML = book_list[1].showInfo();
+        }
+        confirm[2].onclick = function(){
+            result.innerHTML = book_list[2].showInfo();
+        }
+        confirm[3].onclick = function(){
+            result.innerHTML = book_list[3].showInfo();
+        }
+
+       
+    </script>
+</body>
+</html>
