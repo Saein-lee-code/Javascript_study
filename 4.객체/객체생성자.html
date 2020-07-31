@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 객체 생성자 함수
+        function Member(no, name, age){
+            // property
+            this.no = no;
+            this.name = name;
+            this.age = age;         
+            // method
+            this.showInfo = function(){
+            return "회원번호: " + this.no + ", 이름: " + this.name + ", 나이: " + this.age;
+            }
+        }        
+
+        var members = [
+            new Member(112233, '이익준', 40),
+            new Member(445566, '김준완', 42),
+            new Member(998754, '채송화', 39),
+            new Member(963258, '양석형', 41),
+            new Member(569823, '안정원', 38)
+        ];
+        console.log(members[0]);
+        for(var i=0; i<members.length; i++){
+            document.write(members[i].showInfo() + "<br>");
+        }
+        // 객체 생성자 함수, 메소드를 프로토 타입으로 등록하여 생성. 
+        function Member1(no, name, age){
+            // property
+            this.no = no;
+            this.name = name;
+            this.age = age; 
+        }
+        var members = [
+            new Member1(112233, '이익준', 40),
+            new Member1(445566, '김준완', 42),
+            new Member1(998754, '채송화', 39),
+            new Member1(963258, '양석형', 41),
+            new Member1(569823, '안정원', 38)
+        ];
+
+
+        // Member생성자 함수의 메소드 프로토타입
+        // Member생성자 함수의 메소드를 프로토타입으로 만들면 메소드가 하나만 만들어져서
+        // 모든 객체에서 공유하여 사용 하게 된다.
+        // 따라서 메모리 낭비 막을 수 있음.
+
+        Member1.prototype.showInfo = function(){
+            return "회원번호: " + this.no + ", 이름: " + this.name + ", 나이: " + this.age;
+        }
+
+        for(var i=0; i<members.length; i++){
+            document.write(members[i].showInfo() + "<br>");
+        }
+
+        console.log(members[0]); // function 포함되있지 않음.
+    </script>
+</body>
+</html>
