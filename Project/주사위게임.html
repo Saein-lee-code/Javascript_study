@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>잭팟게임</title>
+    <style>
+
+        html, body, h1, p, label { margin: 0; padding: 0; }
+        .container{ width: 650px; margin: 0 auto; }
+        .container h1{ background-color: #122529; color: white; text-align: center; font-size: 60px; text-shadow: 2px 2px 10px #f3e989; padding: 10px 0; }
+        .info p { background-color: #122529; margin: 0; padding: 0; color: white; padding: 10px 20px; font-size: 18px; }
+        .info label {margin-right: 20px; font-weight: bold; font-size: 25px; }
+        .info input { width: 120px; height: 25px; }
+        .info button {margin-left: 20px; }
+        .info .accent{ font-size: 20px; font-weight: bold; }
+        .info #btn { box-shadow:inset 0px 39px 0px -24px #e67a73;
+                        background-color:#e4685d;
+                        border-radius:4px;
+                        border:1px solid #ffffff;
+                        display:inline-block;
+                        cursor:pointer;
+                        color:#ffffff;
+                        font-family:Arial;
+                        font-size:15px;
+                        padding:6px 15px;
+                        text-decoration:none;
+                        text-shadow:0px 1px 0px #b23e35; }
+        .content { margin-top: 80px; }
+        .content img { width: 160px; 
+                        padding-right: 50px;
+                        animation-name: rollDice;
+                        animation-timing-function: ease-in-out;
+                        animation-iteration-count: infinite; 
+                        animation-direction: alternate;
+                        animation-duration: 3s;}
+        .betting_input{ border : 5px dotted #ccc; padding: 20px 10px; text-align: center; margin-top: 30px; }
+        .result{ margin-top: 50px; font-weight: bold; font-size: 20px; text-align: center; }
+        @keyframes rollDice{
+            from{ transform: rotate(0deg); transform-origin: center; }
+            to{ transform: rotate(360deg); transform-origin: center; }
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>잭팟게임</h1>
+        <div class="info">
+            <p>주사위를 던져주세요.</p>
+            <p>- 같은 숫자 3개면 베팅 금액의 <span class="accent">10배</span><br>- 숫자 2개가 일치하면 배팅금액의 <span class="accent">2배</span>를 드립니다.</p>
+            <p>배팅금액을 입력하고, 플레이 버튼을 누르면 게임을 시작합니다.</p>
+            <div class="betting_input"><label for="betting">베팅금액</label><input id="betting" type="text" value=""><button id="btn">플레이</button></div>
+            <div class="content">
+                <img id="dice1" src="images/dice_info.png" alt="">
+                <img id="dice2" src="">
+                <img id="dice3" src="">
+            </div>
+            <div class="result">                
+                <span id="winPrice"></span>
+            </div>
+        </div>       
+
+    </div>
+    <script>
+        var betting = document.querySelector('#betting');
+        var btn = document.querySelector('#btn');
+        var dice1 = document.querySelector('#dice1');
+        var dice2 = document.querySelector('#dice2');
+        var dice3 = document.querySelector('#dice3');
+        var winPrice = document.querySelector('#winPrice');
+        var dice = ['dice_1.png', 'dice_2.png', 'dice_3.png', 'dice_4.png', 'dice_5.png', 'dice_6.png'];
+
+        btn.onclick = function(){                        
+            if(!betting.value){
+                alert("금액을 입력하세요");
+            }else if(isNaN(betting.value)){
+                alert("숫자만 입력하세요.");
+                betting.value='';
+            }            
+            else{
+                var rand1 = Math.floor(Math.random() * 6); // 0 ~ 5
+                dice1.setAttribute("src", "images/" + dice[rand1]);
+
+                var rand2 = Math.floor(Math.random() * 6); // 0 ~ 5
+                dice2.setAttribute("src", "images/" + dice[rand2]);
+
+                var rand3 = Math.floor(Math.random() * 6); // 0 ~ 5
+                dice3.setAttribute("src", "images/" + dice[rand3]);
+                
+                var m;                
+                if(rand1 == rand2 && rand2 == rand3) m = 10;
+                else if((rand1 == rand2) || (rand1 == rand3) || (rand2 == rand3)) m = 2;
+                else m = 0;
+
+                switch(m){
+                    case 10:
+                        winPrice.innerHTML = `잭팟!! 베팅금액: ${Number((betting.value)).toLocaleString()}원<br> 축하합니다! 상금: ${(betting.value * 10).toLocaleString()}원!`;
+                        break;
+                    case 2:
+                        winPrice.innerHTML = `베팅금액: ${(Number(betting.value)).toLocaleString()}원<br> 축하합니다! 상금:${(betting.value * 2).toLocaleString()}원!`;
+                        break;
+                    default:
+                        winPrice.innerHTML = `ㅠㅠ꽝입니다! 다 잃었습니다.....`;
+                        break;
+                }
+                betting.value= '';
+                betting.focus();
+            }                        
+        }
+    </script>    
+</body>
+</html>
