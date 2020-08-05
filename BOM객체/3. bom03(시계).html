@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contianer">
+        <h3>타이머 메소드</h3>
+        현재시간: <span id="nowClock"></span>
+        <button onclick="clearInterval(t1)">Time stop</button>
+    </div> 
+    <script>
+        var t1 = setInterval(myClock, 1000);
+        function myClock(){
+            var currentTime = new Date();
+            document.getElementById("nowClock").innerHTML = currentTime;
+        }
+    </script>
+</body>
+</html>
