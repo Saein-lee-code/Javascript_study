@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer method</title>
+    <style>
+        .container{
+            width: 500px; margin: 0 auto;
+        }
+        img{ visibility: hidden; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>타이머 메소드</h3>
+        <hr>
+        <p>생각하는 시간을 10초 주겠습니다.</p>
+        <p id="count"></p>
+        <button>Start</button>
+        <hr>
+        <img src="images/thinking.png" alt="" width="200" height="250">
+    </div>
+    <script>
+        var img = document.getElementsByTagName("img");
+        var btn = document.getElementsByTagName("button");
+        var count = document.getElementById("count");
+        var s = 1;
+
+        var t = setInterval(function(){
+            count.innerHTML = `${s}초`;
+            s++;
+            if(s>10){
+                clearInterval(t);
+            }
+        }, 1000);
+        
+        btn[0].onclick = function thinkingStart(){
+            img[0].style.visibility = "visible";
+            setTimeout(myTimer, 10000);
+        }      
+        
+        function myTimer(){
+            img[0].style.visibility = "hidden";
+        }
+    </script>
+</body>
+</html>
